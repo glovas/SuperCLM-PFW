@@ -55,7 +55,7 @@
 
     function sendData(data) {
         if(navigator.onLine) {
-            $.get(window.trackingUrl, data)
+            $.get(window.SuperCLM.trackingUrl, data)
                 .done(function () {
                     // Yaay successfully stored event
                 })
@@ -91,13 +91,14 @@
         sendData(dataToSend);
     }
 
-    function itemClickEvent () {
+    function itemClickEvent (e) {
         var item = $(this);
         var dataToSend = getSendDataTemplate();
         dataToSend.type = "ACTION";
         dataToSend.targetTitle = item.title;
         dataToSend.targetId = item.id;
-        dataToSend.body();
+        dataToSend.positionX = e.pageX - item.offset().left;
+        dataToSend.positionY = e.pageY - item.offset().top;
         sendData(dataToSend);
     }
 

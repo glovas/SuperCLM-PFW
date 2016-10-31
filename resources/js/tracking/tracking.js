@@ -36,7 +36,7 @@
             targetId : '',
             targetTitle : '',
             body : '',
-            timestamp : new Date().getTime()/1000,
+            time : new Date().getTime()/1000,
             type : 'OPEN'
         };
         return $.extend({}, data);
@@ -95,8 +95,8 @@
         var item = $(this);
         var dataToSend = getSendDataTemplate();
         dataToSend.type = "ACTION";
-        dataToSend.targetTitle = item.title;
-        dataToSend.targetId = item.id;
+        dataToSend.targetTitle = item[0].title;
+        dataToSend.targetId = item[0].id;
         dataToSend.positionX = e.pageX - item.offset().left;
         dataToSend.positionY = e.pageY - item.offset().top;
         sendData(dataToSend);

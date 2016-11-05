@@ -33,6 +33,8 @@
             longitude : longitude,
             positionX : 0,
             positionY : 0,
+            windowWidth: window.outerWidth,
+            windowHeight: window.outerHeight,
             targetId : '',
             targetTitle : '',
             body : '',

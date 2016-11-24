@@ -117,13 +117,16 @@
             }
         }
     }
+    function init() {
+        $(window).load(sendOpenEvent);
+        window.onbeforeunload = sendCloseEvent;
+        $('[id]').click(itemClickEvent);
+        window.addEventListener('online',  sendOfflineEventOnOnline);
+    }
 
-    $(window).load(sendOpenEvent);
-    window.onbeforeunload = sendCloseEvent;
-    $('[id]').click(itemClickEvent);
-    window.addEventListener('online',  sendOfflineEventOnOnline);
-
-    return {
-        trackCustomEvent: trackCustomEvent
+    window.tracking = {
+        trackCustomEvent: trackCustomEvent,
+        init: init
     };
+    return window.tracking;
 }));

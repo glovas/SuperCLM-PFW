@@ -118,7 +118,7 @@
         }
     }
     function init() {
-        $(window).load(sendOpenEvent);
+        sendOpenEvent();
         window.onbeforeunload = sendCloseEvent;
         $('[id]').click(itemClickEvent);
         window.addEventListener('online',  sendOfflineEventOnOnline);

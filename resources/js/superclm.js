@@ -25,7 +25,7 @@ function slideInBackButton() {
 
 (function ready() {
     let lastTouch = null;
-    document.addEventListener('click', function(e) {
+    document.addEventListener('touchstart', function(e) {
         if (lastTouch != null && e.timeStamp - lastTouch <= 500) {
             slideInBackButton();
         }
